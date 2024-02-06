@@ -9,16 +9,16 @@ package ch4;
 public class TvEx {
 
   public static void main(String[] args) {
-    Tv tv1 = new Tv("black", 3, true, 50);
-
+    Tv tv1 = new Tv("black", 3, true);
     tv1.channelUp();
     tv1.channelUp();
     tv1.channelDown();
-
-    System.out.println("현재 채널 : " + tv1.channel);
+    System.out.println("현재 채널 : " + tv1.getChannel());
 
     // 채널번호 직접 입력
     tv1.channel_Select();
-    System.out.println("현재 채널 : " + tv1.channel);
+    System.out.println("현재 채널 : " + tv1.getChannel());
+
+    tv1.setPower(false);
   }
 }

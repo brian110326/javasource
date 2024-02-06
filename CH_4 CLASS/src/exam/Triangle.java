@@ -11,5 +11,9 @@ public class Triangle {
     this.height = height;
   }
 
-  public Triangle() {}
+  // 삼각형의 넓이
+  public double getArea() {
+    double area = (baseline * height) / 2.0;
+    return area;
+  }
 }

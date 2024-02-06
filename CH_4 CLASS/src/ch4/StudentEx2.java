@@ -8,6 +8,9 @@ public class StudentEx2 {
     //st2.id ==> 이용불가
     System.out.println(st.toString());
     Student2 obj2 = new Student2();
+    obj2.setId("2020202020");
+    obj2.setName("Park");
+    obj2.setAddr("Newyork");
     System.out.println(obj2.toString());
     // 생성자 ==> 멤버변수 초기화
 

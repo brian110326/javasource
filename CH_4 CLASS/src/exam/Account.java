@@ -13,5 +13,15 @@ public class Account {
     this.balance = balance;
   }
 
-  public Account() {}
+  // 입금
+  public int deposit(int add) {
+    balance += add;
+    return balance;
+  }
+
+  // 출금
+  public int withdraw(int sub) {
+    balance -= sub;
+    return balance;
+  }
 }

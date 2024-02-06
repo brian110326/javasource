@@ -11,5 +11,15 @@ public class GoodsStock {
     this.stockNum = stockNum;
   }
 
-  public GoodsStock() {}
+  // 재고수량 추가
+  public int addStock(int addAmount) {
+    stockNum += addAmount;
+    return stockNum;
+  }
+
+  // 재고수량 감소
+  public int subStock(int subAmount) {
+    stockNum -= subAmount;
+    return stockNum;
+  }
 }

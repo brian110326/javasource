@@ -7,17 +7,20 @@ import java.util.Scanner;
 
 public class Tv {
 
-  String color;
-  int channel;
-  boolean power;
-  int size;
+  private String color;
+  private int channel;
+  private boolean power;
+
   Scanner sc = new Scanner(System.in);
 
-  public Tv(String color, int channel, boolean power, int size) {
+  // 생성자 오버로딩
+
+  public Tv() {}
+
+  public Tv(String color, int channel, boolean power) {
     this.color = color;
     this.channel = channel;
     this.power = power;
-    this.size = size;
   }
 
   public void channelUp() {
@@ -32,5 +35,29 @@ public class Tv {
     System.out.println("채널 입력 : ");
     channel = sc.nextInt();
     return channel;
+  }
+
+  public String getColor() {
+    return color;
+  }
+
+  public void setColor(String color) {
+    this.color = color;
+  }
+
+  public int getChannel() {
+    return channel;
+  }
+
+  public void setChannel(int channel) {
+    this.channel = channel;
+  }
+
+  public boolean isPower() {
+    return power;
+  }
+
+  public void setPower(boolean power) {
+    this.power = power;
   }
 }
