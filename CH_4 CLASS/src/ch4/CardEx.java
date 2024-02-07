@@ -15,6 +15,8 @@ public class CardEx {
     Card.width = 80;
     Card.height = 60;
 
+    System.out.println("너비 길이 : " + Card.width);
+
     CardEx obj = new CardEx();
     obj.method1();
   }

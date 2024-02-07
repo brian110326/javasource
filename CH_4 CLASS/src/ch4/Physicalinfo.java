@@ -8,6 +8,8 @@ public class Physicalinfo {
   private double weight;
   private double height;
 
+  public Physicalinfo() {}
+
   public Physicalinfo(String name, int age, double weight, double height) {
     this.name = name;
     this.age = age;
