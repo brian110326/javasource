@@ -22,6 +22,8 @@ public class CalcOperator extends Calc {
     return a / b;
   }
 
+  // Add, Sub, Mul, Div를 각각 클래스로
+
   @Override
   public int calculate() {
     System.out.println("Input Num1 : ");
