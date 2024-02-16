@@ -2,7 +2,7 @@ package lang;
 
 // java.lang.String : 문자열 클래스
 // 변경이 불가능한 클래스 : Immutable ==> only readable
-//
+
 public class StringEx1 {
 
   public static void main(String[] args) {

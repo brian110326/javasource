@@ -24,7 +24,7 @@ public class StringEx2 {
     String ss = str1.concat("World");
     System.out.println(ss);
 
-    // 2. compareTo() : 0, -1, 1 return
+    // 2. compareTo()
     // 문자열을 사전 순서로 비교
     // 같으면 0, 사전순으로 이전이면 음수, 사전순으로 이후면 양수
     // a ==> 97, b ==> 98

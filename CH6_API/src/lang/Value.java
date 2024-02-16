@@ -13,9 +13,7 @@ public class Value {
   public boolean equals(Object obj) {
     if (obj instanceof Value) {
       Value v = (Value) obj;
-      // Object obj = value2;
       if (this.value == v.value) {
-        // this.value ==> v1
         return true;
       }
     }
