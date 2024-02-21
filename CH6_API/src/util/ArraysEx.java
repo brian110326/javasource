@@ -23,6 +23,7 @@ public class ArraysEx {
 
     // Arrays.asList(배열) : 배열을 List구조로 변경
     List<Integer> list = Arrays.asList(new Integer[] { 1, 2, 3, 4, 5 });
+
     List<Integer> list2 = Arrays.asList(6, 7, 8, 9);
 
     // UnsupportedOperationException : 반환된 List 크기를 변경할 수 없기 때문
