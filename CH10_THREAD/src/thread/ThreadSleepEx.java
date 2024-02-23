@@ -3,8 +3,8 @@ package thread;
 public class ThreadSleepEx {
 
   public static void main(String[] args) {
-    ThreadSleep1 th1 = new ThreadSleep1();
-    ThreadSleep2 th2 = new ThreadSleep2();
+    Thread th1 = new ThreadSleep1();
+    Thread th2 = new ThreadSleep2();
 
     th1.start();
     th2.start();
