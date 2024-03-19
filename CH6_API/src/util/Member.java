@@ -39,6 +39,11 @@ public class Member {
     return false;
   }
 
+  // @Override
+  // public int hashCode() {
+  //   int hash = Objects.hash(id, name);
+  //   return hash;
+  // }
   @Override
   public int hashCode() {
     int hash = Objects.hash(id, name);

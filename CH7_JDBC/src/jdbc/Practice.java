@@ -24,6 +24,7 @@ public class Practice {
       String sql =
         "SELECT *\r\n" + //
         "FROM BOOKTBL b \r\n";
+      pstmt = con.prepareStatement(sql);
 
       rs = pstmt.executeQuery();
 
@@ -35,20 +36,6 @@ public class Practice {
       }
     } catch (ClassNotFoundException | SQLException e) {
       e.printStackTrace();
-    } finally {
-      try {
-        if (rs != null) {
-          rs.close();
-        }
-        if (pstmt != null) {
-          pstmt.close();
-        }
-        if (con != null) {
-          con.close();
-        }
-      } catch (Exception e) {
-        e.printStackTrace();
-      }
     }
   }
 }

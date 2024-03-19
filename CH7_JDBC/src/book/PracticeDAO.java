@@ -1,11 +1,9 @@
-package practice;
+package book;
 
 import static book.JdbcUtil.close;
 import static book.JdbcUtil.getConnection;
 
-import book.BookDTO;
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -20,47 +18,17 @@ public class PracticeDAO {
 
   public int insert(PracticeDTO dto) {
     con = getConnection();
-
+    int result = 0;
     String sql =
       "INSERT INTO BOOKTBL b(code, title, writer, price) VALUES(?,?,?,?)";
-    int result = 0;
+
     try {
       pstmt = con.prepareStatement(sql);
       pstmt.setInt(1, dto.getCode());
       pstmt.setString(2, dto.getTitle());
       pstmt.setString(3, dto.getWriter());
       pstmt.setInt(4, dto.getPrice());
-      result = pstmt.executeUpdate();
-    } catch (SQLException e) {
-      e.printStackTrace();
-    } finally {
-      close(con, pstmt);
-    }
-    return result;
-  }
 
-  public int delete(int code) {
-    con = getConnection();
-    String sql = "DELETE FROM BOOKTBL WHERE CODE = ?";
-    int result = 0;
-    try {
-      pstmt = con.prepareStatement(sql);
-      pstmt.setInt(1, code);
-      result = pstmt.executeUpdate();
-    } catch (SQLException e) {
-      e.printStackTrace();
-    }
-    return result;
-  }
-
-  public int update(PracticeDTO dto) {
-    con = getConnection();
-    String sql = "UPDATE BOOKTBL SET PRICE  = ? WHERE CODE = ?";
-    int result = 0;
-    try {
-      pstmt = con.prepareStatement(sql);
-      pstmt.setInt(1, dto.getPrice());
-      pstmt.setInt(2, dto.getCode());
       result = pstmt.executeUpdate();
     } catch (SQLException e) {
       e.printStackTrace();
@@ -72,8 +40,13 @@ public class PracticeDAO {
 
   public PracticeDTO getRow(int code) {
     con = getConnection();
-    String sql = "SELECT * FROM BOOKTBL b  WHERE CODE = ?";
+
+    String sql =
+      "SELECT *\r\n" + //
+      "FROM BOOKTBL b \r\n" + //
+      "WHERE CODE = ?";
     PracticeDTO dto = null;
+
     try {
       pstmt = con.prepareStatement(sql);
       pstmt.setInt(1, code);
@@ -81,6 +54,7 @@ public class PracticeDAO {
 
       if (rs.next()) {
         dto = new PracticeDTO();
+
         dto.setCode(rs.getInt("code"));
         dto.setTitle(rs.getString("title"));
         dto.setWriter(rs.getString("writer"));
@@ -96,9 +70,12 @@ public class PracticeDAO {
 
   public List<PracticeDTO> getRows() {
     con = getConnection();
-    String sql = "SELECT * FROM BOOKTBL b";
+    String sql =
+      "SELECT *\r\n" + //
+      "FROM BOOKTBL b \r\n";
 
     List<PracticeDTO> list = new ArrayList<>();
+
     try {
       pstmt = con.prepareStatement(sql);
       rs = pstmt.executeQuery();
@@ -109,14 +86,48 @@ public class PracticeDAO {
         dto.setTitle(rs.getString("title"));
         dto.setWriter(rs.getString("writer"));
         dto.setPrice(rs.getInt("price"));
-
         list.add(dto);
       }
     } catch (SQLException e) {
       e.printStackTrace();
-    } finally {
-      close(con, pstmt, rs);
     }
     return list;
+  }
+
+  public int update(PracticeDTO dto) {
+    con = getConnection();
+    int result = 0;
+    String sql = "UPDATE BOOKTBL SET PRICE  = ? WHERE CODE = ?";
+
+    try {
+      pstmt = con.prepareStatement(sql);
+      pstmt.setInt(1, dto.getPrice());
+      pstmt.setInt(2, dto.getCode());
+
+      result = pstmt.executeUpdate();
+    } catch (SQLException e) {
+      e.printStackTrace();
+    } finally {
+      close(con, pstmt);
+    }
+    return result;
+  }
+
+  public int delete(int code) {
+    con = getConnection();
+    int result = 0;
+    String sql = "DELETE FROM BOOKTBL WHERE CODE = ?";
+
+    try {
+      pstmt = con.prepareStatement(sql);
+      pstmt.setInt(1, code);
+
+      result = pstmt.executeUpdate();
+    } catch (SQLException e) {
+      e.printStackTrace();
+    } finally {
+      close(con, pstmt);
+    }
+    return result;
   }
 }

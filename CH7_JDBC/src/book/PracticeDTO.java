@@ -1,4 +1,4 @@
-package practice;
+package book;
 
 public class PracticeDTO {
 

@@ -26,22 +26,18 @@ import java.util.Scanner;
 
 public class Practice {
 
-  public static void main(String[] args) {
-    Person person1 = new Person("홍길동", "Engineer", "010-1234-5678");
-    Person person2 = new Person("김유신", "Teacher", "010-2323-5656");
-
+  public static void main(String[] args) throws IOException {
     try (
-      FileOutputStream fo = new FileOutputStream("c:\\temp\\serial.dat");
-      ObjectOutputStream oos = new ObjectOutputStream(fo);
-      FileInputStream fi = new FileInputStream("c:\\\\temp\\\\serial.dat");
-      ObjectInputStream ois = new ObjectInputStream(fi);
+      FileReader fr = new FileReader("c:\\temp\\test1.txt");
+      BufferedReader br = new BufferedReader(fr);
+      FileWriter fw = new FileWriter("c:\\temp\\BBBBB.txt");
+      BufferedWriter bw = new BufferedWriter(fw);
     ) {
-      oos.writeObject(person1);
-      oos.writeObject(person2);
+      String str = null;
 
-      for (int i = 0; i < 2; i++) {
-        Person p = (Person) ois.readObject();
-        System.out.println(p);
+      while ((str = br.readLine()) != null) {
+        bw.write(str);
+        bw.newLine();
       }
     } catch (Exception e) {
       e.printStackTrace();

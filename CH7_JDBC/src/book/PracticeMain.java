@@ -1,6 +1,5 @@
-package practice;
+package book;
 
-import book.BookDAO;
 import java.util.List;
 import java.util.Scanner;
 
@@ -33,14 +32,13 @@ public class PracticeMain {
         case 1:
           System.out.println("code 입력 : ");
           int code = Integer.parseInt(sc.nextLine());
-
-          PracticeDTO dto3 = dao.getRow(code);
-          System.out.println(dto3);
+          PracticeDTO dto = dao.getRow(code);
+          System.out.println(dto);
           break;
         case 2:
           List<PracticeDTO> list = dao.getRows();
-          for (PracticeDTO dto : list) {
-            System.out.println(dto);
+          for (PracticeDTO dto2 : list) {
+            System.out.println(dto2);
           }
           break;
         case 3:
@@ -53,13 +51,13 @@ public class PracticeMain {
           System.out.println("price 입력 : ");
           int newPrice = Integer.parseInt(sc.nextLine());
 
-          PracticeDTO dto = new PracticeDTO(
+          PracticeDTO insertdto = new PracticeDTO(
             newCode,
             newTitle,
             newWriter,
             newPrice
           );
-          int result = dao.insert(dto);
+          int result = dao.insert(insertdto);
           System.out.println(result > 0 ? "입력 성공" : "입력 실패");
           break;
         case 4:
@@ -68,10 +66,12 @@ public class PracticeMain {
           System.out.println("price 입력 : ");
           int updatePrice = Integer.parseInt(sc.nextLine());
 
-          PracticeDTO dto2 = new PracticeDTO();
-          dto2.setCode(updateCode);
-          dto2.setPrice(updatePrice);
-          System.out.println(dao.update(dto2) > 0 ? "수정 성공" : "수정 실패");
+          PracticeDTO updatedto = new PracticeDTO();
+          updatedto.setPrice(updatePrice);
+          updatedto.setCode(updateCode);
+          System.out.println(
+            dao.update(updatedto) > 0 ? "수정 성공" : "수정 실패"
+          );
           break;
         case 5:
           System.out.println("code 입력 : ");

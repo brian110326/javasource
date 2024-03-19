@@ -12,7 +12,7 @@ import java.io.InputStreamReader;
 // PrintStream : 버퍼를 사용하며 , print, println, printf가 정의가 되어있음
 
 // 2) 문자 기반
-// BufferedReadr / BufferedWriter : 버퍼를 이용한 입출력 향상 스트림
+// BufferedReader / BufferedWriter : 버퍼를 이용한 입출력 향상 스트림
 
 // Bridge Stream
 // InputStreamReader / OutputStreamReader
